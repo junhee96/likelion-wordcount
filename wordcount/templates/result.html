@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>글자 수 세기 프로젝트</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'main.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">HOME</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+            <h1>당신이 입력한 텍스트는 {{total}}로 구성되어 있습니다</h1>            
+        <p class="lead">
+            <a href="{% url 'home' %}"> 다시 하기</a>
+            <br>
+            <h2> 입력한 텍스트:</h2>
+            {{full}}
+            <h2> 단어 카운트:</h2>
+                {% for word, howmany in dictionary %}
+            
+                {{word}} : {{howmany}}
+                <br>
+                {%endfor%}
+            </p>
+        <ul class="list-unstyled">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'slim.js' %}"></script>
+  <script src="{% static 'boudle.js' %}"></script>
+
+</body>
+</html>
